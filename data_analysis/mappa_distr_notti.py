@@ -25,7 +25,7 @@ df["COD_COM_S"] = df["ace_notte_successiva"].str[6:9]
 df["PRO_COM_T_S"] = df["COD_PROV_S"] + df["COD_COM_S"]
 
 # caricamento e standardizzazione dati shapefile
-gdf_comuni = gpd.read_file("Limiti01012025_g/Com01012025_g/Com01012025_g_WGS84.shp")
+gdf_comuni = gpd.read_file("raw_data/Limiti01012025_g/Com01012025_g/Com01012025_g_WGS84.shp")
 for col in ["COD_REG", "COD_PROV", "PRO_COM_T"]:
     if col in gdf_comuni.columns:
         gdf_comuni[col] = gdf_comuni[col].astype(str).str.zfill(6 if col == "PRO_COM_T" else 3)
